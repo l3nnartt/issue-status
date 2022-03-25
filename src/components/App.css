@@ -68,18 +68,23 @@
     .component-status.operational {
         color: #46b75d;
     }
+
     .component-status.performanceissues {
         color: #4173ac;
     }
+
     .component-status.partialoutage {
         color: #aa8448;
     }
+
     .component-status.majoroutage {
         color: #b4554b;
     }
+
     .component-status.maintenance {
         color: #a3a3a3;
     }
+
     .component-status.unknown {
         color: #b9b7b7;
     }
@@ -187,25 +192,32 @@
     .dark-logo {
         display: inline;
     }
+
     .light-logo {
         display: none;
     }
+
     .components-container {
         background-color: #181A1B;
     }
+
     .component {
         background-color: #1C1F20;
     }
+
     .incident-container {
         color: #fff;
         background-color: #181A1B;
     }
+
     .incident-skeleton {
         background-color: #181A1B;
     }
+
     .incident-status {
         color: #a0a0a0;
     }
+
     .incident-status.activeIncident {
         color: #5787be;
     }

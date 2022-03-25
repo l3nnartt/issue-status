@@ -46,25 +46,26 @@ const Code = styled.code`
 `;
 
 // TODO: change all systems status based on current status of all components
-const StatusCompound = ({ loading, error, components, refetch }) => {
-  const [status] = useStatus(components);
-  const [timeAgo] = useRefetch(refetch, loading);
+const StatusCompound = ({loading, error, components, refetch}) => {
+    const [status] = useStatus(components);
+    const [timeAgo] = useRefetch(refetch, loading);
 
-  return (
-    <>
-      {error.hasError && (
-        <Code>
-          <div>{l10n.error.message.title}</div>
-          <div>{l10n.error.message.body}</div>
-          {JSON.stringify(error.errors, null, 3)}
-        </Code>
-      )}
-      <StatusBar className={`status-bar ${status?.name}`} backgroundColour={status?.backgroundColour}>
-        <Status>{status?.message}</Status>
-        <ReloadContainer>{l10n.general.refresh}<Reload onClick={refetch}>{loading ? l10n.general.refreshing : timeAgo}</Reload></ReloadContainer>
-      </StatusBar>
-    </>
-  );
+    return (
+        <>
+            {error.hasError && (
+                <Code>
+                    <div>{l10n.error.message.title}</div>
+                    <div>{l10n.error.message.body}</div>
+                    {JSON.stringify(error.errors, null, 3)}
+                </Code>
+            )}
+            <StatusBar className={`status-bar ${status?.name}`} backgroundColour={status?.backgroundColour}>
+                <Status>{status?.message}</Status>
+                <ReloadContainer>{l10n.general.refresh}<Reload
+                    onClick={refetch}>{loading ? l10n.general.refreshing : timeAgo}</Reload></ReloadContainer>
+            </StatusBar>
+        </>
+    );
 };
 
 export default StatusCompound;

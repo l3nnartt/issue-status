@@ -20,29 +20,29 @@ const NoFound = styled.div`
   margin: 0 8px;
 `;
 
-const IncidentList = ({ loading, incidents }) => {
-  const [hasMounted] = useDidMount();
+const IncidentList = ({loading, incidents}) => {
+    const [hasMounted] = useDidMount();
 
-  return (
-    <Container>
-      <Title>{l10n.incidents.title}</Title>
-      {!loading || hasMounted ? (
-        incidents?.length > 0 ? (
-          incidents?.map((incident) => (
-            <Incident key={incident.id} incident={incident} />
-          ))
-        ) : (
-          <NoFound>{l10n.error.noincidents}</NoFound>
-        )
-      ) : (
-        <>
-          <Skeleton className="incident-skeleton" />
-          <Skeleton className="incident-skeleton" />
-          <Skeleton className="incident-skeleton" />
-        </>
-      )}
-    </Container>
-  );
+    return (
+        <Container>
+            <Title>{l10n.incidents.title}</Title>
+            {!loading || hasMounted ? (
+                incidents?.length > 0 ? (
+                    incidents?.map((incident) => (
+                        <Incident key={incident.id} incident={incident}/>
+                    ))
+                ) : (
+                    <NoFound>{l10n.error.noincidents}</NoFound>
+                )
+            ) : (
+                <>
+                    <Skeleton className="incident-skeleton"/>
+                    <Skeleton className="incident-skeleton"/>
+                    <Skeleton className="incident-skeleton"/>
+                </>
+            )}
+        </Container>
+    );
 };
 
 export default IncidentList;

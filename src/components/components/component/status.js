@@ -10,14 +10,15 @@ const Status = styled.div`
   transition: 0.3s;
 `;
 
-const StatusCompound = ({ labels }) => {
-  const [status] = useStatus(labels);
+const StatusCompound = ({labels}) => {
+    const [status] = useStatus(labels);
 
-  return (
-    <Status className={`component-status ${status?.name.toLowerCase().replace(' ', '')}`} backgroundColour={status?.backgroundColour}>
-      {status?.locName}
-    </Status>
-  );
+    return (
+        <Status className={`component-status ${status?.name.toLowerCase().replace(' ', '')}`}
+                backgroundColour={status?.backgroundColour}>
+            {status?.locName}
+        </Status>
+    );
 };
 
 export default StatusCompound;

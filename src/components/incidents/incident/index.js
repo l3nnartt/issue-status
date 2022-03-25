@@ -52,23 +52,24 @@ const Created = styled.div`
   font-weight: bold;
 `;
 
-const IncidentCompound = ({ incident }) => (
-  <Incident className="incident-container" active={incident.closed_at}>
-    <Details>
-      <Created>
-        {moment(incident.created_at)
-          .format('LLL')
-          .toUpperCase()}
-      </Created>
-      <Status className={incident.closed_at ? 'incident-status' : 'activeIncident incident-status'} active={incident.closed_at}>
-        {incident.closed_at ? l10n.incidents.closed : l10n.incidents.active}
-      </Status>
-    </Details>
-    <Title>{incident.title}</Title>
-    <Comment>
-      <ReactMarkdown className="incident" children={incident.body} />
-    </Comment>
-  </Incident>
+const IncidentCompound = ({incident}) => (
+    <Incident className="incident-container" active={incident.closed_at}>
+        <Details>
+            <Created>
+                {moment(incident.created_at)
+                    .format('LLL')
+                    .toUpperCase()}
+            </Created>
+            <Status className={incident.closed_at ? 'incident-status' : 'activeIncident incident-status'}
+                    active={incident.closed_at}>
+                {incident.closed_at ? l10n.incidents.closed : l10n.incidents.active}
+            </Status>
+        </Details>
+        <Title>{incident.title}</Title>
+        <Comment>
+            <ReactMarkdown className="incident" children={incident.body}/>
+        </Comment>
+    </Incident>
 );
 
 export default IncidentCompound;

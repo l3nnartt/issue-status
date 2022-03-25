@@ -14,24 +14,24 @@ const Branding = styled.a`
 `;
 
 const FooterCompound = () => (
-  <Footer>
-    <Branding
-      visible={process.env.REACT_APP_BRANDING !== "false"}
-      href="https://gommehd.net/terms"
-      rel="noopener"
-      target="_blank"
-    >
-      {l10n.general.imprint}
-    </Branding>
-    <Branding
-      visible={process.env.REACT_APP_BRANDING !== "false"}
-      href="https://github.com/tadhglewis/issue-status"
-      rel="noopener"
-      target="_blank"
-    >
-      {l10n.general.branding}
-    </Branding>
-  </Footer>
+    <Footer>
+        <Branding
+            visible={process.env.REACT_APP_BRANDING !== "false"}
+            href="https://gommehd.net/terms"
+            rel="noopener"
+            target="_blank"
+        >
+            {l10n.general.imprint}
+        </Branding>
+        <Branding
+            visible={process.env.REACT_APP_BRANDING !== "false"}
+            href="https://github.com/tadhglewis/issue-status"
+            rel="noopener"
+            target="_blank"
+        >
+            {l10n.general.branding}
+        </Branding>
+    </Footer>
 );
 
 export default FooterCompound;
