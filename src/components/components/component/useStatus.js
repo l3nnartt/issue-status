@@ -1,18 +1,20 @@
-import { useState, useEffect } from "react";
+import {useEffect, useState} from "react";
 import statuses from "./statuses";
 
-export default (labels) => {
-  const [status, setStatus] = useState();
+const useStatus = (labels) => {
+    const [status, setStatus] = useState();
 
-  useEffect(() => {
-    setStatus(
-      Object.values(statuses).find((status) =>
-        labels.find((label) => label.name === status.name.toLowerCase())
-      )
-    );
-  }, [labels]);
+    useEffect(() => {
+        setStatus(
+            Object.values(statuses).find((status) =>
+                labels.find((label) => label.name === status.name.toLowerCase())
+            )
+        );
+    }, [labels]);
 
-  if (!status) setStatus(statuses.unknown);
+    if (!status) setStatus(statuses.unknown);
 
-  return [status];
+    return [status];
 };
+
+export default useStatus;
