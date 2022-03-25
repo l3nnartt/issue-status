@@ -20,6 +20,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+    - run: npm i
     - run: npm run build
     - name: Deploy gh-pages
       uses: JamesIves/github-pages-deploy-action@v4.2.5
