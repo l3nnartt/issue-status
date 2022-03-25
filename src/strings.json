@@ -16,7 +16,7 @@
     "general": {
       "refresh": "Last refresh: ",
       "refreshing": "refreshing...",
-      "imprint": "Imprint & Privacy Policy",
+      "imprint": "Imprint",
       "branding": "Powered by Issue Status"
     },
     "incidents": {
@@ -55,7 +55,7 @@
     "general": {
       "refresh": "Zuletzt aktualisiert: ",
       "refreshing": "laden ...",
-      "imprint": "Impressum & Datenschutzerklärung",
+      "imprint": "Impressum",
       "branding": "Powered by Issue Status"
     },
     "incidents": {
