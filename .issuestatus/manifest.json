@@ -1,5 +1,5 @@
 {
-  "short_name": "Issue Status",
+  "short_name": "Timolia Status",
   "name": "Simple, modern and flexible status page",
   "icons": [
     {
@@ -18,7 +18,7 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "https://tadhglewis.github.io/issue-status",
+  "start_url": "https://l3nnartt.github.io/issue-status",
   "display": "standalone",
-  "theme_color": "#3da751"
+  "theme_color": "#2a2a2a"
 }
