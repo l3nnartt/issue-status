@@ -1,6 +1,6 @@
 {
-  "short_name": "status.gommehd.net",
-  "name": "Official status page for GommeHD.net",
+  "short_name": "status.karmatop.de",
+  "name": "Simple, modern and flexible status page",
   "icons": [
     {
       "src": "favicon.ico",
@@ -18,7 +18,7 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "https://l3nnartt.github.io/status/",
+  "start_url": "https://status.karmatop.de",
   "display": "standalone",
-  "theme_color": "#3da751"
+  "theme_color": "#2a2a2a"
 }
