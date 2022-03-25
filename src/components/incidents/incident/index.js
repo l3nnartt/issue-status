@@ -2,13 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import moment from "moment";
 import ReactMarkdown from "react-markdown";
+import l10n from '../../../language';
 
 const Incident = styled.div`
   transition: 0.3s;
   border-left: 16px solid
     ${(props) =>
-      props.active ? "rgba(177, 177, 177,0.2)" : "rgba(73, 144, 226, 0.2)"};
-  background-color: white;
+    props.active ? "rgba(177, 177, 177,0.2)" : "rgba(213, 119, 51, 0.25)"};
   border-radius: 3px;
   padding: 16px;
   box-shadow: 0px 0px 33px -32px rgba(0, 0, 0, 0.75);
@@ -26,22 +26,20 @@ const Details = styled.div`
   margin-bottom: 3px;
 `;
 
-const Title = styled.div`
+const Title = styled.h3`
   margin-right: 16px;
   font-weight: bold;
   margin-bottom: 8px;
-  color: #1e1e1e;
+  margin-top: 0;
 `;
 
 const Comment = styled.div`
   white-space: break-spaces;
-  color: #1e1e1e;
 `;
 
 const Status = styled.div`
-  color: ${(props) => (props.active ? "#6e6b6b" : "#2f5888")};
   background-color: ${(props) =>
-    props.active ? "rgba(177, 177, 177, 0.1)" : "rgba(73, 144, 226, 0.1)"};
+    props.active ? "rgba(96, 96, 96, 0.1)" : "rgba(73, 144, 226, 0.1)"};
   padding: 5px 12px;
   border-radius: 16px;
   font-size: 13px;
@@ -54,21 +52,23 @@ const Created = styled.div`
   font-weight: bold;
 `;
 
-export default ({ incident }) => (
-  <Incident active={incident.closed_at}>
+const IncidentCompound = ({ incident }) => (
+  <Incident className="incident-container" active={incident.closed_at}>
     <Details>
       <Created>
         {moment(incident.created_at)
-          .format("MMMM Do YYYY, h:mm a")
+          .format('LLL')
           .toUpperCase()}
       </Created>
-      <Status active={incident.closed_at}>
-        {incident.closed_at ? "Closed" : "Active"}
+      <Status className={incident.closed_at ? 'incident-status' : 'activeIncident incident-status'} active={incident.closed_at}>
+        {incident.closed_at ? l10n.incidents.closed : l10n.incidents.active}
       </Status>
     </Details>
     <Title>{incident.title}</Title>
     <Comment>
-      <ReactMarkdown source={incident.body} />
+      <ReactMarkdown className="incident" children={incident.body} />
     </Comment>
   </Incident>
 );
+
+export default IncidentCompound;

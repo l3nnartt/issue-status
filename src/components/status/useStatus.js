@@ -1,18 +1,18 @@
 import { useState, useEffect } from "react";
 import statuses from "./statuses";
 
-export default (components) => {
+const useStatus = (components) => {
   const [status, setStatus] = useState();
 
   useEffect(() => {
     let statusSet = false;
 
-    if (getComponentLabelPercent(components, "operational") < 70) {
+    if (getComponentLabelPercent(components, "operational") < 100) {
       setStatus(statuses.issues);
       statusSet = true;
     }
 
-    if (getComponentLabelPercent(components, "major outage") > 0) {
+    if (getComponentLabelPercent(components.filter((c) => !c.labels.find((l) => l.name === 'subcomponent')), "major outage") > 0) {
       setStatus(statuses.outage);
       statusSet = true;
     }
@@ -29,3 +29,5 @@ const getComponentLabelPercent = (components, label) =>
   ).length *
     100) /
   components.length;
+
+export default useStatus;

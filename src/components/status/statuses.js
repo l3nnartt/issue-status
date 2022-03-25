@@ -1,14 +1,18 @@
-export default {
+import l10n from '../../language'
+
+const Statuses = {
   operational: {
-    message: "All Systems Operational",
-    backgroundColour: "#3da751",
+    message: l10n.status.operational,
+    name: 'operational'
   },
   issues: {
-    message: "Some systems are experiencing issues",
-    backgroundColour: "#4990e2",
+    message: l10n.status.issues,
+    name: 'issues'
   },
   outage: {
-    message: "Some systems are experiencing a major outage",
-    backgroundColour: "#d94430",
+    message: l10n.status.outage,
+    name: 'outage'
   },
 };
+
+export default Statuses;

@@ -2,17 +2,18 @@ import React from "react";
 import Skeleton from "./skeleton";
 import Component from "./component";
 import useDidMount from "../useDidMount";
+import l10n from '../../language';
 
-export default ({ loading, components }) => {
+const ComponentList = ({ loading, components }) => {
   const [hasMounted] = useDidMount();
 
   return !loading || hasMounted ? (
     components?.length > 0 ? (
-      components?.map((component) => (
-        <Component key={component.id} component={component} />
+      components?.sort((a,b) => a.title.localeCompare(b.title)).map((component) => (
+        <Component key={component.id} component={component} components={components} />
       ))
     ) : (
-      <p>No Components found.</p>
+      <p>{l10n.error.nocomponents}</p>
     )
   ) : (
     <>
@@ -22,3 +23,5 @@ export default ({ loading, components }) => {
     </>
   );
 };
+
+export default ComponentList;
